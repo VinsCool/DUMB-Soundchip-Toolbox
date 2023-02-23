@@ -12,6 +12,7 @@
 
 #define FREQ_17_NTSC			1789773		//The true clock frequency for the NTSC Atari 8-bit computer is 1.7897725 MHz
 #define FREQ_17_PAL			1773447		//The true clock frequency for the PAL Atari 8-bit computer is 1.7734470 MHz
+#define FREQ_16_PAL			1662607		//PAL NES clock, NTSC is identical to Atari 8-bit
 #define FREQ_17_HALFNTSC		0894886		//The true clock frequency for half NTSC clockspeed is 0.89488625 MHz (894.88 KHz)
 #define FREQ_17_HALFPAL			0886724		//The true clock frequency for half PAL clockspeed is 0.8867235 MHz (886.72 KHz)
 #define FREQ_17_MSX			3579545		//The true clock frequency for NTSC MSX computers are 3.579545 MHz

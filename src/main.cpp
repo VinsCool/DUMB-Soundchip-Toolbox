@@ -58,11 +58,11 @@ bool g_truncate_freq = 0;
 
 bool g_16bit_freq = 0;		//POKEY 16-bit mode 
 bool g_179mhz_freq = 0;		//POKEY 1.79mHz mode 
-bool g_15khz_freq = 1;		//POKEY 15kHz mode
+bool g_15khz_freq = 0;		//POKEY 15kHz mode
 
 
 int g_audctl = 0;		//POKEY AUDCTL used in calculations (default) 
-int g_timbre = TIMBRE_BELL;	//POKEY Distortion/Timbre used in calculations (default) 
+int g_timbre = TIMBRE_PURE;	//POKEY Distortion/Timbre used in calculations (default) 
 
 
 //-----------------------------------------------------------------------------------------------------------//

@@ -15,7 +15,7 @@ const char* g_notes[] =
 double CTuning::generate_pitch(int soundchip, int freq) 
 {
 	//TODO: A lot of stuff, aaaaaaaaaa 
-	//if (soundchip != SOUNDCHIP_POKEY) return get_pitch(soundchip, freq);
+	if (soundchip != SOUNDCHIP_POKEY) return get_pitch(soundchip, freq);
 
 	//variables for pitch calculation, divisors must never be 0!
 	double divisor = 1;	
@@ -131,7 +131,7 @@ int CTuning::generate_freq(int soundchip, int semitone)
 	//TODO: A lot of stuff, aaaaaaaaaa 
 	double pitch = GetTruePitch(g_basetuning, g_temperament, g_basenote, semitone); 
 	
-	//if (soundchip != SOUNDCHIP_POKEY) return get_freq(soundchip, pitch); 
+	if (soundchip != SOUNDCHIP_POKEY) return get_freq(soundchip, pitch); 
 	
 	//variables for pitch calculation, divisors must never be 0!
 	double divisor = 1;	
@@ -603,11 +603,11 @@ double CTuning::get_pitch(int soundchip, int freq)
 	switch(soundchip)
 	{ 
 	case SOUNDCHIP_2A03:  
-		return (((g_ntsc) ? FREQ_17_NTSC : FREQ_17_PAL) / (16.0 * (freq + 1)));
+		return (((g_ntsc) ? FREQ_17_NTSC : FREQ_16_PAL) / (16.0 * (freq + 1)));
 		
 	case SOUNDCHIP_SUNS5B:
 		//if the freq value is 0, return 0Hz, to avoid a division by 0 crash 
-		return (freq) ? (((g_ntsc) ? FREQ_17_NTSC : FREQ_17_PAL) / (32.0 * freq)) : 0; 
+		return (freq) ? (((g_ntsc) ? FREQ_17_NTSC : FREQ_16_PAL) / (32.0 * freq)) : 0; 
 	
 	case SOUNDCHIP_POKEY: 
 		coarse_divisor = 28;	//standard 64kHz mode, hardcoded for now... 
@@ -635,10 +635,10 @@ int CTuning::get_freq(int soundchip, double pitch)
 	switch(soundchip)
 	{ 
 	case SOUNDCHIP_2A03: 
-		return (int)round((((g_ntsc) ? FREQ_17_NTSC : FREQ_17_PAL) / (16.0 * pitch)) - 1); 
+		return (int)round((((g_ntsc) ? FREQ_17_NTSC : FREQ_16_PAL) / (16.0 * pitch)) - 1); 
 		
 	case SOUNDCHIP_SUNS5B:
-		return (int)round((((g_ntsc) ? FREQ_17_NTSC : FREQ_17_PAL) / (32.0 * pitch))); 
+		return (int)round((((g_ntsc) ? FREQ_17_NTSC : FREQ_16_PAL) / (32.0 * pitch))); 
 	
 	case SOUNDCHIP_POKEY: 
 		coarse_divisor = 28;	//standard 64kHz mode, hardcoded for now... 
